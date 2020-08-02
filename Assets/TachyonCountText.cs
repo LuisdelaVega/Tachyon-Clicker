@@ -7,5 +7,5 @@ public class TachyonCountText : MonoBehaviour
     private TextMeshProUGUI countText;
 
     private void Awake() => countText = GetComponent<TextMeshProUGUI>();
-    private void Update() => countText.text = $"Tachyons: {tachyons.count}";
+    private void Update() => countText.text = $"/c/usr/dlvglpz/opt/> Tachyons Harvested: {tachyons.count}";
 }

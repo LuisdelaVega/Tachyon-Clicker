@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        tachyons.count = 0f;
+        tachyons.count = 1f;
         GameDate.dateIsBC = false;
         GameDate.Date = new DateTime(2020, 11, 11, 12, 12, 12, 0);
 
