@@ -9,11 +9,17 @@ public class SimpleDate : ScriptableObject
     public DateTime Date
     {
         get => date;
-        set
+        private set
         {
             date = value;
             dateInMilliseconds = (value - DateTime.MinValue).TotalMilliseconds;
         }
+    }
+
+    private DateTime startDate;
+    public DateTime StartDate {
+        get => startDate;
+        set => startDate = date = value;
     }
 
     public bool dateIsBC = false;
