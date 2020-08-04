@@ -8,12 +8,16 @@ public class GameManager : MonoBehaviour
     public SimpleCounter tachyons;
     public StoreItem[] storeItems;
 
-    private void Start()
+    private void Awake()
     {
-        tachyons.count = 1f;
-        GameDate.dateIsBC = false;
+        // Set the Start and End dates for the game
         GameDate.StartDate = new DateTime(2020, 11, 11, 12, 12, 12, 0);
+        GameDate.EndDate = new DateTime(2000, 7, 27, 12, 12, 12, 0);
 
+        // Start the game at one Tachyon
+        tachyons.count = 1f;
+
+        // Start the game with no Store Items bought
         foreach (StoreItem item in storeItems)
         {
             item.count = 0;
