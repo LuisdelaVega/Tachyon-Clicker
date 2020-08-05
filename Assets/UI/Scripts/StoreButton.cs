@@ -7,13 +7,12 @@ public class StoreButton : MonoBehaviour
     public SimpleCounter tachyons;
     public StoreItem storeItem;
     private Button btn;
-    private Text btnText;
+    public Text btnText;
     [SerializeField] private int cost = 1;
 
     private void Awake()
     {
         btn = GetComponent<Button>();
-        btnText = GetComponentInChildren<Text>();
 
         SetText();
     }

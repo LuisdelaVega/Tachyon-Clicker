@@ -7,9 +7,6 @@ public class TachyonClick : MonoBehaviour
     [SerializeField] private float tachyonsPerClick = 1f;
     [SerializeField] private float scaleTime = 0.2f;
 
-    private void OnEnable() => StoreItem.OnPerformClick += Add;
-    private void OnDisable() => StoreItem.OnPerformClick -= Add;
-
     private void Update()
     {
         if (Input.GetMouseButtonDown(0))

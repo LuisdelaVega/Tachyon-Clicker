@@ -6,6 +6,8 @@ public class MainMenu : MonoBehaviour
 {
     private const int Game = 1;
     public GameObject Overlay;
+    public GameObject RunCommand;
+    [SerializeField] private float waitTime = 3;
 
     public void Load(int buildIndex) => StartCoroutine(LoadLevel(buildIndex));
 
@@ -16,6 +18,16 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene(buildIndex);
     }
 
-    public void PlayGame() => Load(Game);
+    public void PlayGame()
+    {
+        RunCommand.SetActive(true);
+        StartCoroutine(LoadGame());
+    }
+
+    private IEnumerator LoadGame()
+    {
+        yield return new WaitForSeconds(waitTime); 
+        Load(Game);
+    }
     public void QuitGame() => Application.Quit();
 }

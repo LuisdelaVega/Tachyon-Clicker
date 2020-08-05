@@ -9,7 +9,7 @@ public class StoreItem : SimpleCounter
     public string itemName = "Jeff";
     public float costAdjustment = 0.5f;
 
-    public static event Action<float> OnPerformClick;
+    public SimpleCounter tachyon;
 
-    public void Click() => OnPerformClick?.Invoke(count * amountOfTachyonsToHarvest);
+    public void Click() => tachyon.count += count * amountOfTachyonsToHarvest;
 }
