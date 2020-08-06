@@ -7714,6 +7714,22 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 3800778629859897975, guid: e314a5d9691f1cb4fb54fca214d9d234, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 7c81fa9b68b584747b1f31a3a8bfef36, type: 3}
+    - target: {fileID: 3800778629859897975, guid: e314a5d9691f1cb4fb54fca214d9d234, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3800778629859897975, guid: e314a5d9691f1cb4fb54fca214d9d234, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3800778629859897975, guid: e314a5d9691f1cb4fb54fca214d9d234, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4677394271543108943, guid: e314a5d9691f1cb4fb54fca214d9d234, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -3.3682785
