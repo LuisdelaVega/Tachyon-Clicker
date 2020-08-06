@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe9bf05134a46b746946a57d92d89ad8, type: 3}
   m_Name: Particle Collider
   m_EditorClassIdentifier: 
-  count: 0
-  amountOfTachyonsToHarvest: 600
+  count: 1
+  amountOfTachyonsToHarvest: 1000
   interval: 0.25
   itemName: Particle Collider
-  costAdjustment: 0.45
+  costAdjustment: 0.36
   image: {fileID: 0}
   tachyon: {fileID: 11400000, guid: ee28e54ed9693fd4bacda7774431b9fc, type: 2}
