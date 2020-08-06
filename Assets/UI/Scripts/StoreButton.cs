@@ -1,16 +1,20 @@
 ﻿using System;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class StoreButton : MonoBehaviour
 {
     public SimpleCounter tachyons;
     public StoreItem storeItem;
     private Button btn;
-    public Text btnText;
+    public TextMeshProUGUI Title;
+    public TextMeshProUGUI Cost;
+    public TextMeshProUGUI Count;
+    public TextMeshProUGUI TachyonsPerSecond;
     [SerializeField] private int cost = 1;
 
-    private void Awake()
+    private void Start()
     {
         btn = GetComponent<Button>();
 
@@ -27,5 +31,11 @@ public class StoreButton : MonoBehaviour
         SetText();
     }
 
-    private void SetText() => btnText.text = $"{storeItem.itemName} cost: {cost} amount: {storeItem.count}";
+    private void SetText()
+    {
+        Title.text = $"{storeItem.itemName}";
+        Cost.text = $"{cost}";
+        Count.text = $"{storeItem.count}";
+        TachyonsPerSecond.text = $"{storeItem.amountOfTachyonsToHarvest/storeItem.interval * storeItem.count}";
+    }
 }

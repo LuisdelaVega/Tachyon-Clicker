@@ -5,8 +5,10 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public SimpleDate GameDate;
-    public SimpleCounter tachyons;
+    public SimpleCounter Tachyons;
     public StoreItem[] storeItems;
+
+    public GameObject OutroTimeline;
 
     private void Awake()
     {
@@ -15,7 +17,7 @@ public class GameManager : MonoBehaviour
         GameDate.EndDate = new DateTime(2000, 7, 27, 12, 12, 12, 0);
 
         // Start the game at one Tachyon
-        tachyons.count = 1f;
+        Tachyons.count = 1f;
 
         // Start the game with no Store Items bought
         foreach (StoreItem item in storeItems)
@@ -25,7 +27,13 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void Update() => GameDate.AddMilliseconds(-10f * tachyons.count);
+    private void Update()
+    {
+        GameDate.AddMilliseconds(-10f * Tachyons.count);
+
+        if (GameDate.GetTimeUntilEnd().totalDays <= 0 && !OutroTimeline.gameObject.activeSelf)
+            OutroTimeline.SetActive(true);
+    }
 
     private IEnumerator RunStoreItem(StoreItem item)
     {

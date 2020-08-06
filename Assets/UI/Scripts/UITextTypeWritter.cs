@@ -4,7 +4,7 @@ using TMPro;
 
 public class UITextTypeWritter : MonoBehaviour
 {
-    public TextMeshProUGUI txt;
+    private TextMeshProUGUI txt;
     private string story;
     [SerializeField] private float timeBetweenLeters = 0.125f;
 

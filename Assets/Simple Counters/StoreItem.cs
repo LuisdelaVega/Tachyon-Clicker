@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 [CreateAssetMenu(menuName = "Counter/Store")]
 public class StoreItem : SimpleCounter
@@ -8,6 +7,7 @@ public class StoreItem : SimpleCounter
     public float interval = 0.5f;
     public string itemName = "Jeff";
     public float costAdjustment = 0.5f;
+    public Sprite image;
 
     public SimpleCounter tachyon;
 
