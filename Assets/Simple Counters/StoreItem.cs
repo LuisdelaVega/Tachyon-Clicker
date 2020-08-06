@@ -1,14 +1,15 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 [CreateAssetMenu(menuName = "Counter/Store")]
 public class StoreItem : SimpleCounter
 {
     public float amountOfTachyonsToHarvest = 1;
-    public static event Action<float> OnPerformClick;
     public float interval = 0.5f;
     public string itemName = "Jeff";
     public float costAdjustment = 0.5f;
+    public Sprite image;
 
-    public void Click() => OnPerformClick?.Invoke(count * amountOfTachyonsToHarvest);
+    public SimpleCounter tachyon;
+
+    public void Click() => tachyon.count += count * amountOfTachyonsToHarvest;
 }

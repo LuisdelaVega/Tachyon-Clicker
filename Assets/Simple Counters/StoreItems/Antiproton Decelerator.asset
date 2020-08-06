@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: Antiproton Decelerator
   m_EditorClassIdentifier: 
   count: 0
-  amountOfTachyonsToHarvest: 50
-  interval: 1
+  amountOfTachyonsToHarvest: 300
+  interval: 0.5
   itemName: Antiproton Decelerator
-  costAdjustment: 0.25
+  costAdjustment: 0.65
+  image: {fileID: 0}
+  tachyon: {fileID: 11400000, guid: ee28e54ed9693fd4bacda7774431b9fc, type: 2}
