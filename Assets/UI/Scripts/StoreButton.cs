@@ -17,6 +17,12 @@ public class StoreButton : MonoBehaviour
     private bool hasBeenInteractable = false;
     public GameObject[] LabSprites;
     [SerializeField] private int purchaseInterval = 50;
+    public SimpleAudioEvent StoreSounds;
+    private AudioSource audioSource;
+    private Color btnColor;
+    private bool interactable;
+
+    private void Awake() => audioSource = GetComponent<AudioSource>();
 
     private void Start()
     {
@@ -29,15 +35,20 @@ public class StoreButton : MonoBehaviour
 
     private void Update()
     {
-        btn.interactable = tachyons.count >= cost;
+        // Button interactable
+        interactable = tachyons.count >= cost;
+        if (!interactable.Equals(btn.interactable)) btn.interactable = interactable;
 
+        // Button Color
         if (btn.interactable)
         {
             if (!hasBeenInteractable) hasBeenInteractable = true;
-            ItemImage.color = Color.white;
+            btnColor = Color.white;
         }
         else
-            ItemImage.color = hasBeenInteractable ? Color.grey : Color.black;
+            btnColor = hasBeenInteractable ? Color.grey : Color.black;
+
+        if (!ItemImage.color.Equals(btnColor)) ItemImage.color = btnColor;
     }
 
     public void Buy(int amount)
@@ -45,6 +56,9 @@ public class StoreButton : MonoBehaviour
         tachyons.count -= cost * amount;
         storeItem.count += amount;
         cost += (int)Math.Round(cost * amount * storeItem.costAdjustment);
+
+        if (audioSource != null && !StoreSounds.Waiting)
+            StartCoroutine(StoreSounds.PlayWithDelay(audioSource));
 
         GameObject labSprite = LabSprites[Mathf.Clamp(Mathf.FloorToInt(storeItem.count / purchaseInterval), 0, LabSprites.Length - 1)];
 
@@ -55,8 +69,9 @@ public class StoreButton : MonoBehaviour
 
     private void SetText()
     {
-        Cost.text = $"{cost}";
-        Count.text = $"{storeItem.count}";
-        TachyonsPerSecond.text = $"{storeItem.amountOfTachyonsToHarvest/storeItem.interval * storeItem.count}";
+        Cost.text = $"{cost:n0}";
+        Count.text = $"{storeItem.count:n0}";
+        string tachyonsPerSec = (storeItem.amountOfTachyonsToHarvest / storeItem.interval * storeItem.count).ToString("n0");
+        TachyonsPerSecond.text = $"{(storeItem.count > 0 ? tachyonsPerSec : "???")}";
     }
 }

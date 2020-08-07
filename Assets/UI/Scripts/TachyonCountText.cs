@@ -7,5 +7,5 @@ public class TachyonCountText : MonoBehaviour
     private TextMeshProUGUI countText;
 
     private void Awake() => countText = GetComponent<TextMeshProUGUI>();
-    private void Update() => countText.text = $"{tachyons.count}";
+    private void Update() => countText.text = $"{tachyons.count:n0}";
 }

@@ -8,11 +8,11 @@ public class TachyonClick : MonoBehaviour
     [SerializeField] private float tachyonsPerClick = 1f;
     [SerializeField] private float scaleTime = 0.2f;
     public SimpleAudioEvent TachyonSounds;
-    private AudioSource source;
+    private AudioSource audioSource;
     private bool playSound = true;
     [SerializeField] private float soundTime = 0.125f;
 
-    private void Awake() => source = GetComponent<AudioSource>();
+    private void Awake() => audioSource = GetComponent<AudioSource>();
 
     private void Update()
     {
@@ -24,19 +24,13 @@ public class TachyonClick : MonoBehaviour
 
             if (hit.collider == null) return;
 
-            if (source != null && playSound) StartCoroutine(PlaySound());
+            if (audioSource != null && !TachyonSounds.Waiting)
+                StartCoroutine(TachyonSounds.PlayWithDelay(audioSource));
+
             Add(tachyonsPerClick);
             Destroy(Instantiate(glowspereBurst, transform.position, Quaternion.identity), 2);
         }
     }
 
     public void Add(float value) => tachyons.count += value;
-
-    private IEnumerator PlaySound()
-    {
-        playSound = false;
-        TachyonSounds.Play(source);
-        yield return new WaitForSeconds(soundTime);
-        playSound = true;
-    }
 }
