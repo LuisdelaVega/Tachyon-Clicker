@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe9bf05134a46b746946a57d92d89ad8, type: 3}
   m_Name: Engineer
   m_EditorClassIdentifier: 
-  count: 18
-  amountOfTachyonsToHarvest: 30
-  interval: 0.5
+  count: 25
+  amountOfTachyonsToHarvest: 50
+  interval: 0.25
   itemName: Engineer
-  costAdjustment: 0.25
-  image: {fileID: 0}
+  costAdjustment: 0.2
+  image: {fileID: 21300000, guid: d4748187f1f0ef14a9ba6d6b2a507a15, type: 3}
   tachyon: {fileID: 11400000, guid: ee28e54ed9693fd4bacda7774431b9fc, type: 2}

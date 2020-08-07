@@ -10,8 +10,14 @@ public class GameManager : MonoBehaviour
 
     public GameObject OutroTimeline;
 
+    private AudioSource source;
+    [SerializeField] private float soundfadeInterval = 0.125f;
+    [SerializeField] private float soundfadeTimeInterval = 0.125f;
+    [SerializeField] private float maxVolume = 0.5f;
+
     private void Awake()
     {
+        source = GetComponent<AudioSource>();
         // Set the Start and End dates for the game
         GameDate.StartDate = new DateTime(2020, 11, 11, 12, 12, 12, 0);
         GameDate.EndDate = new DateTime(2000, 7, 27, 12, 12, 12, 0);
@@ -27,6 +33,8 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void Start() => StartCoroutine(FadeInAudio());
+
     private void Update()
     {
         GameDate.AddMilliseconds(-10f * Tachyons.count);
@@ -41,6 +49,15 @@ public class GameManager : MonoBehaviour
         {
             yield return new WaitForSeconds(item.interval);
             item.Click();
+        }
+    }
+
+    private IEnumerator FadeInAudio()
+    {
+        while (source.volume < maxVolume)
+        {
+            yield return new WaitForSeconds(soundfadeTimeInterval);
+            source.volume += soundfadeInterval;
         }
     }
 }

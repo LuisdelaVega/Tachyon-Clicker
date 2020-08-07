@@ -173,8 +173,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31cdba4a3399b614f8ff7c278293b65a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  txt: {fileID: 0}
   timeBetweenLeters: 0.075
+  Keyboard: {fileID: 0}
 --- !u!114 &252985588
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -407,8 +407,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31cdba4a3399b614f8ff7c278293b65a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  txt: {fileID: 0}
   timeBetweenLeters: 0.075
+  Keyboard: {fileID: 0}
 --- !u!114 &1093683355
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -429,7 +429,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: I just wanted to be with you...
+  m_text: My loves... My family...
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: af76e3ed9e78fe048a3b7f3e625690a2, type: 2}
   m_sharedMaterial: {fileID: -5212454707788872025, guid: af76e3ed9e78fe048a3b7f3e625690a2, type: 2}
@@ -771,8 +771,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31cdba4a3399b614f8ff7c278293b65a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  txt: {fileID: 0}
   timeBetweenLeters: 0.075
+  Keyboard: {fileID: 0}
 --- !u!114 &1630992223
 MonoBehaviour:
   m_ObjectHideFlags: 0
